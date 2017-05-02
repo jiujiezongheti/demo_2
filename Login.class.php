@@ -11,9 +11,9 @@
 			//载入xml文件
 			$_sxe = simplexml_load_file('user.xml');
 			if($_sxe->uname==$this->_uname&&$_sxe->pwd==$this->_pwd){
-				echo '登录成功';
+				Tool::_alertLocation($_sxe->uname."，登录成功",'?index=member');
 			}else{
-				echo '登录失败';
+				Tool::_alertBack("登录失败");
 			}
 		}
 

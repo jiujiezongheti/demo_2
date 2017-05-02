@@ -23,6 +23,8 @@ _xml;
 			$_sxe = new SimpleXMLElement($_xml);
 			//生成xml
 			$_sxe->asXML('user.xml');
+			//跳转到login.php
+			Tool::_alertLocation('注册成功','?index=login');
 		}
 		public function _check(){
 			
