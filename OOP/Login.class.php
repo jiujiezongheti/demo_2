@@ -11,6 +11,8 @@
 			//载入xml文件
 			$_sxe = simplexml_load_file('user.xml');
 			if($_sxe->uname==$this->_uname&&$_sxe->pwd==$this->_pwd){
+				//生成cookie
+				setcookie('user',$this->_uname);
 				Tool::_alertLocation($_sxe->uname."，登录成功",'?index=member');
 			}else{
 				Tool::_alertBack("登录失败");
@@ -19,7 +21,10 @@
 
 		
 		public function _check(){
-			
+			if(empty($this->_uname)||empty($this->_pwd)){
+				return false;
+			}
+			return true;
 		}
 	}
 

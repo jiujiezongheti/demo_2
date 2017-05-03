@@ -26,8 +26,15 @@ _xml;
 			//跳转到login.php
 			Tool::_alertLocation('注册成功','?index=login');
 		}
+		//给注册做验证
 		public function _check(){
-			
+			if(empty($this->_uname)||
+				empty($this->_pwd)||
+				empty($this->_notpwd)||
+				empty($this->_email)){
+				return false;
+			}
+			return true;
 		}
 	}
 

@@ -41,7 +41,12 @@
 		}
 		//创建一个执行的方法
 		private function _exec($_class){
-			$_class->_query();
+			if($_class->_check()){
+				$_class->_query();
+			}else{
+				Tool::_alertBack('字段不能为空');
+			}
+			
 		}
 	}
 ?>
